@@ -78,6 +78,7 @@ public class Week3 {
 
     /**
      * Uses binary search to find a value in an array
+     * @see https://www.cs.hioa.no/~ulfu/appolonius/kap1/3/kap13.html#1.3.6
      * @param values Values to search through
      * @param value Value to search for
      * @return Index of value if found, or where the value would be
