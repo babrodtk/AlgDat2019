@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ * Remember: Use alt+enter on the Week1 class to create this test class
+ */
 class Week1Test {
     @org.junit.jupiter.api.Test
     void findMax() {

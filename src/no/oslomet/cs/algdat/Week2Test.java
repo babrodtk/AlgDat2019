@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ * Remember: Use alt+enter on the Week2 class to create this test class
+ */
 class Week2Test {
 
     @Test

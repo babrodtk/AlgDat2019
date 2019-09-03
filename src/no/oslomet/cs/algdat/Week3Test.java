@@ -6,6 +6,9 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Remember: Use alt+enter on the Week3 class to create this test class
+ */
 class Week3Test {
 
     @Test
