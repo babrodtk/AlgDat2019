@@ -23,4 +23,18 @@ class Week4Test {
         int index_8 = Week4.binarySearch(values, 8);
         assertEquals(5, index_8);
     }
+
+    @Test
+    void testIfItWorks() {
+        Week4.testIfItWorks();
+
+    }
+
+    @Test
+    void isGreaterThan() {
+        assertEquals(true, Week4.isGreaterThan('D', 'A'));
+        assertEquals(true, Week4.isGreaterThan(7, 2));
+        assertEquals(false, Week4.isGreaterThan(4.3, 7.6));
+        assertEquals(true, Week4.isGreaterThan("abc", "bac"));
+    }
 }
