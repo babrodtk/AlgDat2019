@@ -25,9 +25,8 @@ class Week4Test {
     }
 
     @Test
-    void testIfItWorks() {
-        Week4.testIfItWorks();
-
+    void doubleTest() {
+        Week4.doubleTest();
     }
 
     @Test
