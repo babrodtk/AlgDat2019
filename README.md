@@ -3,6 +3,8 @@
 
 Source code for the algorithms and data structures course (DATS2300 / ITPE2300) at Oslo Metropolitan University.
 
+Important: This source code is written live during a class, and may contain quite a bit of short-cuts and bad practices - It has been written to convay a single point or a single algorithm, and some other parts have therefore been sacrificed...
+
 Most of the source code corresponds to algorithms in the [course lecture notes](https://www.cs.hioa.no/~ulfu/appolonius/index.html)
 
 # Setup and tricks
