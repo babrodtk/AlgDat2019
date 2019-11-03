@@ -19,14 +19,14 @@ public class Week11HuffmanCoding {
             "As thou didst leave it.25\n" +
             "Sergeant. Doubtful it stood;\n" +
             "As two spent swimmers, that do cling together\n" +
-            "And choke their art. The merciless Macdonwald—\n" +
+            "And choke their art. The merciless Macdonwald-\n" +
             "Worthy to be a rebel, for to that\n" +
             "The multiplying villanies of nature30\n" +
-            "Do swarm upon him—from the western isles\n" +
+            "Do swarm upon him-from the western isles\n" +
             "Of kerns and gallowglasses is supplied;\n" +
             "And fortune, on his damned quarrel smiling,\n" +
             "Show'd like a rebel's whore: but all's too weak:\n" +
-            "For brave Macbeth—well he deserves that name—35\n" +
+            "For brave Macbeth-well he deserves that name-35\n" +
             "Disdaining fortune, with his brandish'd steel,\n" +
             "Which smoked with bloody execution,\n" +
             "Like valour's minion carved out his passage\n" +
@@ -230,7 +230,7 @@ public class Week11HuffmanCoding {
             System.out.print(huff_code + " ");
         }
         System.out.println();
-        System.out.println("Coded message used " + bit_coded + " bits");
+        System.out.println("Coded message used " + bit_coded + " 'bits' (it's now stored as a String, should be stored as actual bits)");
         System.out.println("Original message used " + message.length()*8 + " bits");
     }
 }
