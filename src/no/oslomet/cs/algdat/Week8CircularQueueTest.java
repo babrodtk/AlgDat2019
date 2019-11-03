@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Week8Test {
+class Week8CircularQueueTest {
 
     @Test
     void CircularDequeTest() {
-        Week8.CircularDeque c_deque = new Week8.CircularDeque(6);
+        Week8CircularQueue.CircularDeque c_deque = new Week8CircularQueue.CircularDeque(6);
 
         c_deque.pushBack('A');
         c_deque.pushBack('B');
@@ -32,7 +32,7 @@ class Week8Test {
 
     @Test
     void CircularDequeTest2() {
-        Week8.CircularDeque c_deque = new Week8.CircularDeque(6);
+        Week8CircularQueue.CircularDeque c_deque = new Week8CircularQueue.CircularDeque(6);
 
         char[] my_chars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 

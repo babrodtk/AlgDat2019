@@ -2,7 +2,7 @@ package no.oslomet.cs.algdat;
 
 import java.util.Arrays;
 
-public class Week3 {
+public class Week3BinSearchAndSelectionSort {
 
     /**
      * Function which finds the index of the maximum value

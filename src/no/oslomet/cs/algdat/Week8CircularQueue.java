@@ -1,6 +1,6 @@
 package no.oslomet.cs.algdat;
 
-public class Week8 {
+public class Week8CircularQueue {
 
     public static class CircularDeque {
         int begin; //< Starten av køen

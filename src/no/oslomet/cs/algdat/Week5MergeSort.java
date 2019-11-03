@@ -1,6 +1,6 @@
 package no.oslomet.cs.algdat;
 
-public class Week5 {
+public class Week5MergeSort {
 
     /**
      * Merges values[begin, mid) with values[mid, end)

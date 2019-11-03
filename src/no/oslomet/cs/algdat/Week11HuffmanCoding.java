@@ -5,7 +5,10 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
-public class Week11 {
+public class Week11HuffmanCoding {
+    /**
+     * Long message copied from McBeth (Shakespeare)
+     */
     static String message = "Duncan. What bloody man is that? He can report,\n" +
             "As seemeth by his plight, of the revolt\n" +
             "The newest state.20\n" +
@@ -86,13 +89,27 @@ public class Week11 {
             "Ross. I'll see it done.\n" +
             "Duncan. What he hath lost noble Macbeth hath won.";
 
+    /**
+     * Represents a node in a huffman tree
+     */
     public static class HuffNode {
+
+        /**
+         * Leaf node constructor
+         * @param value
+         * @param frequency
+         */
         HuffNode(char value, int frequency) {
             this.value = value;
             this.frequency = frequency;
             this.huffcode = "";
         }
 
+        /**
+         * Internal node constructor
+         * @param left
+         * @param right
+         */
         HuffNode(HuffNode left, HuffNode right) {
             this.left = left;
             this.right = right;
@@ -123,8 +140,9 @@ public class Week11 {
 
             // Enkelte bokstaver faller utenfor ASCII-tabellen (UTF-8),
             // og de ignorerer vi her i vårt eksempel
-            if (index > 256) {
+            if (index >= 256) {
                 //We don't care about utf-8
+                System.err.println("Received character '" + character + "' which is non-ascii. Ignoring");
                 continue;
             }
 
@@ -156,7 +174,7 @@ public class Week11 {
             }
         }
 
-        System.out.println("Priority queue");
+        System.out.println("Build Huffman tree");
         while (queue.size() >= 2) {
             HuffNode left_node = queue.remove();
             HuffNode rigth_node = queue.remove();
@@ -178,19 +196,18 @@ public class Week11 {
         while (!deque.isEmpty()) {
             HuffNode parent = deque.removeFirst();
 
+            //Leaf node
             if (parent.left == null && parent.right == null) {
                 System.out.println(parent.value + " (" + parent.frequency + "): " + parent.huffcode);
                 letter_to_huffcode.put(parent.value, parent.huffcode);
             }
+            //Internal node
             else {
                 System.out.println("* - " + parent.frequency);
-            }
 
-            if (parent.left != null) {
                 deque.addLast(parent.left);
                 parent.left.huffcode = parent.huffcode + "0";
-            }
-            if (parent.right != null) {
+
                 deque.addLast(parent.right);
                 parent.right.huffcode = parent.huffcode + "1";
             }
@@ -202,11 +219,15 @@ public class Week11 {
         for (int i=0; i<message.length(); ++i) {
             Character c = message.charAt(i);
             if ((int) c >= 256) {
+                System.err.println("Received character '" + c + "' which is non-ascii. Ignoring");
                 continue;
+            }
+            if (!letter_to_huffcode.containsKey(c)) {
+                System.err.println("Could not find '" + c + "' in Huffman codes. Something is wrong");
             }
             String huff_code = letter_to_huffcode.get(c);
             bit_coded += huff_code.length();
-            System.out.print(huff_code);
+            System.out.print(huff_code + " ");
         }
         System.out.println();
         System.out.println("Coded message used " + bit_coded + " bits");

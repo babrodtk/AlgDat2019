@@ -2,7 +2,7 @@ package no.oslomet.cs.algdat;
 
 import java.util.Random;
 
-public class Week1 {
+public class Week1FindMax {
 
     public static void main(String[] args) {
         System.out.println("Hello world");

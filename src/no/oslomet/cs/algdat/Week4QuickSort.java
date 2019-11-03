@@ -1,6 +1,6 @@
 package no.oslomet.cs.algdat;
 
-public class Week4 {
+public class Week4QuickSort {
 
     /**
      * Regner ut fakultet:

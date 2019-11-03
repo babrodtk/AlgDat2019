@@ -1,6 +1,6 @@
 package no.oslomet.cs.algdat;
 
-public class Week7 {
+public class Week7LinkedList {
 
     public static class DoubleLinkedList {
 

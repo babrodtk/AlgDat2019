@@ -1,6 +1,6 @@
 package no.oslomet.cs.algdat;
 
-public class Week6 {
+public class Week6LinkedList {
 
     /**
      * Simple class that holds a number. Used in a linked list

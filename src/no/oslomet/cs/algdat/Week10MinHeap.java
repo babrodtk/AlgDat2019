@@ -2,7 +2,7 @@ package no.oslomet.cs.algdat;
 
 import java.util.Arrays;
 
-public class Week10 {
+public class Week10MinHeap {
 
     public static class MinHeap {
         char[] data;

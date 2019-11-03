@@ -2,7 +2,7 @@ package no.oslomet.cs.algdat;
 
 import java.security.InvalidParameterException;
 
-public class Week2 {
+public class Week2TournamentTree {
     /**
      * Finner maksimum i det halvåpne intervallet [begin, end)
      * @param values

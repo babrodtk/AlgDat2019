@@ -1,6 +1,6 @@
 package no.oslomet.cs.algdat;
 
-public class Week9 {
+public class Week9BinaryTree {
 
     /**
      * BTNode is a binary tree node
