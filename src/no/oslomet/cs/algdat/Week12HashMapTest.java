@@ -6,36 +6,44 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Week12HashMapTest {
 
+    String[] names = {
+            "PER",
+            "SIRI",
+            "ALI",
+            "ESPEN",
+            "ESPEN PEDER SIRI ALI TORSTEIN GREGER RAJA OLE"
+    };
+
+    int[] sallaries = {
+            400,
+            200,
+            600,
+            5,
+            90
+    };
+
     @Test
     void testHashFunction() {
-        System.out.println(Week12HashMap.HashMap.hash("PER"));
-        System.out.println(Week12HashMap.HashMap.hash("SIRI"));
-        System.out.println(Week12HashMap.HashMap.hash("ALI"));
-        System.out.println(Week12HashMap.HashMap.hash("ESPEN"));
-
-        //OBS: pass på overflow - her får vi negativ hash!
-        System.out.println(Week12HashMap.HashMap.hash(
-                "ESPEN PEDER SIRI ALI TORSTEIN GREGER RAJA OLE"
-        ));
+        //Test hash-funksjonen
+        for (String name : names) {
+            int hash = Week12HashMap.HashMap.hash(name);
+            System.out.println(name + " - " + hash);
+            assertTrue(hash >= 0);
+        }
     }
 
     @Test
     void testIndexFunction() {
-        int hash1  = Week12HashMap.HashMap.hash("PER");
-        int hash2  = Week12HashMap.HashMap.hash("SIRI");
-        int hash3  = Week12HashMap.HashMap.hash("ALI");
-        int hash4  = Week12HashMap.HashMap.hash("ESPEN");
-        int hash5 = Week12HashMap.HashMap.hash("ESPEN PEDER SIRI ALI TORSTEIN GREGER RAJA OLE");
+        int capacity = 13;
+        Week12HashMap.HashMap hash_map = new Week12HashMap.HashMap(capacity);
 
-        Week12HashMap.HashMap hash_map = new Week12HashMap.HashMap(13);
-
-        System.out.println(hash_map.getIndex(hash1));
-        System.out.println(hash_map.getIndex(hash2));
-        System.out.println(hash_map.getIndex(hash3));
-        System.out.println(hash_map.getIndex(hash4));
-        System.out.println(hash_map.getIndex(hash5));
-
-        assertEquals(hash_map.getIndex(hash1), 4);
+        //Test getIndex-funksjonen
+        for (String name : names) {
+            int hash = Week12HashMap.HashMap.hash(name);
+            int index = hash_map.getIndex(hash);
+            System.out.println(name + " - " + hash + " - " + index);
+            assertTrue(index >= 0 && index < capacity);
+        }
     }
 
 
@@ -43,12 +51,19 @@ class Week12HashMapTest {
     void testAddGet() {
         Week12HashMap.HashMap hash_map = new Week12HashMap.HashMap(13);
 
-        hash_map.add("PER", 200);
-        hash_map.add("ALI", 400);
-        hash_map.add("SIRI", 100);
+        //Legg inn verdier i hash-map
+        for (int i=0; i<names.length; ++i) {
+            hash_map.add(names[i], sallaries[i]);
+        }
 
-        System.out.println(hash_map.get("PER"));
-        System.out.println(hash_map.get("ALI"));
-        System.out.println(hash_map.get("SIRI"));
+        //Hent ut verdier fra hash-map
+        for (int i=0; i<names.length; ++i) {
+            int hash_map_sallary = hash_map.get(names[i]);
+            int true_sallary = sallaries[i];
+            assertEquals(hash_map_sallary, true_sallary);
+        }
+
+        //Sjekk at vi ikke har "NORA" i hash-map'et
+        assertThrows(RuntimeException.class, () -> hash_map.get("NORA"));
     }
 }

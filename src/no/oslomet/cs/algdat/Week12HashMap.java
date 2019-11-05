@@ -14,6 +14,10 @@ public class Week12HashMap {
     public static class HashMap {
         LinkedList<Value>[] hash_map;
 
+        /**
+         * Lager et nytt hashmap med størrelse capacity på selve tabellen.
+         * @param capacity
+         */
         HashMap(int capacity) {
             hash_map = new LinkedList[capacity];
             for (int i=0; i<capacity; ++i) {
@@ -21,6 +25,11 @@ public class Week12HashMap {
             }
         }
 
+        /**
+         * Lager en hash (heltall) fra en streng med bokstaver
+         * @param key
+         * @return
+         */
         public static int hash(String key) {
             int result = 1;
 
@@ -38,6 +47,12 @@ public class Week12HashMap {
             return result;
         }
 
+        /**
+         * Returnerer en verdi mellom [0, capacity)
+         * fra hash'en gitt som input
+         * @param key_hash
+         * @return
+         */
         int getIndex(int key_hash) {
             int capacity = hash_map.length;
             int index = key_hash % capacity;
@@ -48,14 +63,15 @@ public class Week12HashMap {
             //Lag hash av nøkkel
             int key_hash = hash(key);
 
-            //Kjør modulus med capacity
+            //Kjør modulus med capacity for å finne riktig lenket liste
             int index = getIndex(key_hash);
 
-            //Legg inn i lenket liste på riktig indeks
+            //Lag verdi-noden som har nøkkel og verdi
             Value v = new Value();
             v.name = key;
             v.sallary = value;
 
+            //Legg inn v på plassen index sin lenkede liste
             hash_map[index].add(v);
         }
 
@@ -70,6 +86,8 @@ public class Week12HashMap {
             //Søk her hvis lenket liste har fler enn en verdi
             LinkedList<Value> lenket_liste = hash_map[index];
 
+
+            //Lineært søk gjennom den lenkede listen
             ListIterator iter = lenket_liste.listIterator();
             while (iter.hasNext()) {
                 Value v = (Value) iter.next();
